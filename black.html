@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8">
+  <title>הפסנתר של סול 🎹</title>
+  <style>
+    body {
+      background: #f0f8ff;
+      text-align: center;
+      font-family: Arial;
+    }
+
+    .keyboard {
+      display: inline-flex;
+      justify-content: center;
+      margin-top: 40px;
+      position: relative;
+    padding: 10px;
+  background-color: #fff;
+  border: 4px solid #000;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .key-wrapper {
+      position: relative;
+    }
+
+    .key {
+      width: 80px;
+      height: 300px;
+      background: white;
+      border: 1px solid #ccc;
+      margin: 0 1px;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+      transition: transform 0.1s;
+      cursor: pointer;
+      z-index: 1;
+    }
+
+    .key img {
+      width: 82px;
+      height: 130px;
+      position: absolute;
+      bottom: 7px;
+      left: 1px;
+    }
+
+    .key:active {
+      transform: scale(0.98);
+      background-color: #CCC;
+    }
+
+    .key.black {
+      width: 50px;
+      height: 160px;
+      background: black;
+      position: absolute;
+      top: 0;
+      z-index: 2;
+      left: 55px;
+      border: 1px solid #333;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    }
+
+    .key.black:active {
+      background-color: #444;
+    }
+  </style>
+</head>
+<body>
+  <h1>  <img src="thelogo.png" alt="לוגו סול" style="width: 300px; vertical-align: middle; margin-right: 10px;">    
+ 
+   
+ </h1>
+  <div class="keyboard">
+    <!-- אוקטבה שלישית -->
+    <div class="key-wrapper">
+      <div class="key" onclick="playSound('C3')"><img src="דו.png" alt=""></div>
+      <div class="key black" onclick="playSound('C#3')"></div>
+    </div>
+    <div class="key-wrapper">
+      <div class="key" onclick="playSound('D3')"><img src="רה.png" alt=""></div>
+      <div class="key black" onclick="playSound('D#3')"></div>
+    </div>
+    <div class="key-wrapper">
+      <div class="key" onclick="playSound('E3')"><img src="מי.png" alt=""></div>
+    </div>
+    <div class="key-wrapper">
+      <div class="key" onclick="playSound('F3')"><img src="פה.png" alt=""></div>
+      <div class="key black" onclick="playSound('F#3')"></div>
+    </div>
+    <div class="key-wrapper">
+      <div class="key" onclick="playSound('G3')"><img src="סול.png" alt=""></div>
+      <div class="key black" onclick="playSound('G#3')"></div>
+    </div>
+    <div class="key-wrapper">
+      <div class="key" onclick="playSound('A3')"><img src="לה.png" alt=""></div>
+      <div class="key black" onclick="playSound('A#3')"></div>
+    </div>
+    <div class="key-wrapper">
+      <div class="key" onclick="playSound('B3')"><img src="סי.png" alt=""></div>
+    </div>
+
+    <!-- אוקטבה רביעית -->
+    <div class="key-wrapper">
+      <div class="key" onclick="playSound('C4')"><img src="דו.png" alt=""></div>
+      <div class="key black" onclick="playSound('C#4')"></div>
+    </div>
+    <div class="key-wrapper">
+      <div class="key" onclick="playSound('D4')"><img src="רה.png" alt=""></div>
+      <div class="key black" onclick="playSound('D#4')"></div>
+    </div>
+    <div class="key-wrapper">
+      <div class="key" onclick="playSound('E4')"><img src="מי.png" alt=""></div>
+    </div>
+    <div class="key-wrapper">
+      <div class="key" onclick="playSound('F4')"><img src="פה.png" alt=""></div>
+      <div class="key black" onclick="playSound('F#4')"></div>
+    </div>
+    <div class="key-wrapper">
+      <div class="key" onclick="playSound('G4')"><img src="סול.png" alt=""></div>
+      <div class="key black" onclick="playSound('G#4')"></div>
+    </div>
+    <div class="key-wrapper">
+      <div class="key" onclick="playSound('A4')"><img src="לה.png" alt=""></div>
+      <div class="key black" onclick="playSound('A#4')"></div>
+    </div>
+    <div class="key-wrapper">
+      <div class="key" onclick="playSound('B4')"><img src="סי.png" alt=""></div>
+    </div>
+  </div>
+
+  <script>
+    function playSound(note) {
+      const audio = new Audio(note + ".wav");
+      audio.play();
+    }
+  </script>
+</body>
+</html>
