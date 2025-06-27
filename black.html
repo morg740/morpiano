@@ -69,73 +69,85 @@
   </style>
 </head>
 <body>
-  <h1>  <img src="thelogo.png" alt="לוגו סול" style="width: 300px; vertical-align: middle; margin-right: 10px;">    
+  <h1>  <img src="thelogo.png" alt="לוגו סול" style="width: 300px; vertical-align: middle;horizontal-align: middle;">    
  
    
  </h1>
   <div class="keyboard">
     <!-- אוקטבה שלישית -->
     <div class="key-wrapper">
-      <div class="key" onclick="playSound('C3')"><img src="דו.png" alt=""></div>
-      <div class="key black" onclick="playSound('C#3')"></div>
+      <div class="key" data-note="c3"><img src="דו.png" alt=""></div>
+      <div class="key black" data-note="playSound('C#3')"></div>
     </div>
     <div class="key-wrapper">
-      <div class="key" onclick="playSound('D3')"><img src="רה.png" alt=""></div>
-      <div class="key black" onclick="playSound('D#3')"></div>
+      <div class="key" data-note="d3"><img src="רה.png" alt=""></div>
+      <div class="key black" data-note="playSound('D#3')"></div>
     </div>
     <div class="key-wrapper">
-      <div class="key" onclick="playSound('E3')"><img src="מי.png" alt=""></div>
+      <div class="key" data-note="e3"><img src="מי.png" alt=""></div>
     </div>
     <div class="key-wrapper">
-      <div class="key" onclick="playSound('F3')"><img src="פה.png" alt=""></div>
-      <div class="key black" onclick="playSound('F#3')"></div>
+      <div class="key" data-note="f3"><img src="פה.png" alt=""></div>
+      <div class="key black" data-note="playSound('F#3')"></div>
     </div>
     <div class="key-wrapper">
-      <div class="key" onclick="playSound('G3')"><img src="סול.png" alt=""></div>
-      <div class="key black" onclick="playSound('G#3')"></div>
+      <div class="key" data-note="g3"><img src="סול.png" alt=""></div>
+      <div class="key black" data-note="playSound('G#3')"></div>
     </div>
     <div class="key-wrapper">
-      <div class="key" onclick="playSound('A3')"><img src="לה.png" alt=""></div>
-      <div class="key black" onclick="playSound('A#3')"></div>
+      <div class="key" data-note="a3"><img src="לה.png" alt=""></div>
+      <div class="key black" data-note="playSound('A#3')"></div>
     </div>
     <div class="key-wrapper">
-      <div class="key" onclick="playSound('B3')"><img src="סי.png" alt=""></div>
+      <div class="key" data-note="b3"><img src="סי.png" alt=""></div>
     </div>
 
     <!-- אוקטבה רביעית -->
     <div class="key-wrapper">
-      <div class="key" onclick="playSound('C4')"><img src="דו.png" alt=""></div>
-      <div class="key black" onclick="playSound('C#4')"></div>
+      <div class="key" data-note="c4"><img src="דו.png" alt=""></div>
+      <div class="key black" data-note="playSound('C#4')"></div>
     </div>
     <div class="key-wrapper">
-      <div class="key" onclick="playSound('D4')"><img src="רה.png" alt=""></div>
-      <div class="key black" onclick="playSound('D#4')"></div>
+      <div class="key" data-note="d4"><img src="רה.png" alt=""></div>
+      <div class="key black" data-note="playSound('D#4')"></div>
     </div>
     <div class="key-wrapper">
-      <div class="key" onclick="playSound('E4')"><img src="מי.png" alt=""></div>
+      <div class="key" data-note="e4"><img src="מי.png" alt=""></div>
     </div>
     <div class="key-wrapper">
-      <div class="key" onclick="playSound('F4')"><img src="פה.png" alt=""></div>
-      <div class="key black" onclick="playSound('F#4')"></div>
+      <div class="key" data-note="f4"><img src="פה.png" alt=""></div>
+      <div class="key black" data-note="playSound('F#4')"></div>
     </div>
     <div class="key-wrapper">
-      <div class="key" onclick="playSound('G4')"><img src="סול.png" alt=""></div>
-      <div class="key black" onclick="playSound('G#4')"></div>
+      <div class="key" data-note="g4"><img src="סול.png" alt=""></div>
+      <div class="key black" data-note="playSound('G#4')"></div>
     </div>
     <div class="key-wrapper">
-      <div class="key" onclick="playSound('A4')"><img src="לה.png" alt=""></div>
-      <div class="key black" onclick="playSound('A#4')"></div>
+      <div class="key" data-note="a4"><img src="לה.png" alt=""></div>
+      <div class="key black" data-note="playSound('A#4')"></div>
     </div>
     <div class="key-wrapper">
-      <div class="key" onclick="playSound('B4')"><img src="סי.png" alt=""></div>
+      <div class="key" data-note="b4"><img src="סי.png" alt=""></div>
     </div>
   </div>
+<script>
+  function playSound(note) {
+    const audio = new Audio("sounds/" + note + ".wav");
+    audio.play();
+  }
 
-  <script>
-    function playSound(note) {
-      const audio = new Audio(note + ".wav");
-      audio.play();
-    }
-  </script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const keys = document.querySelectorAll(".key");
+
+    keys.forEach(key => {
+      const note = key.getAttribute("data-note");
+      if (note) {
+        key.addEventListener("click", () => playSound(note));
+        key.addEventListener("touchstart", () => playSound(note));
+      }
+    });
+  });
+</script>
+  
 </body>
 </html>
